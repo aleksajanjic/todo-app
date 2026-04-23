@@ -1,0 +1,40 @@
+:root {
+  /* CSS Variables */
+  --bg-primary: #0d0d0f;
+  --bg-secondary: #13131a;
+  --bg-surface: #16161d;
+  --bg-topbar: #111116;
+
+  --border: #1e1e26;
+  --border-hover: #2e2e42;
+
+  --accent: #7c6ff7; /* purple — primary CTA */
+  --text-primary: #e8e6ff;
+  --text-muted: #c8c6e8;
+  --text-dim: #555568;
+  --text-ghost: #3a3a52;
+
+  --tag-work: #7c6ff7;
+  --tag-personal: #5dba7a;
+  --tag-urgent: #e05555;
+
+  --priority-high: #e05555;
+  --priority-med: #e09a30;
+  --priority-low: #4a9e60;
+
+  --font-display: "Syne", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  font: 18px/145% var(--font-display);
+  letter-spacing: 0.18px;
+  color: var(--text-muted);
+  background: var(--bg-primary);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
