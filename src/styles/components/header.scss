@@ -1,0 +1,18 @@
+#header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo-wrapper {
+    font-size: 24px;
+    font-weight: bold;
+
+    .accent-text {
+      color: var(--accent);
+    }
+  }
+
+  .tags-wrapper {
+    color: red;
+  }
+}

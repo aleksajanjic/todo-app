@@ -1,13 +1,17 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
-import heroImg from "./assets/hero.png";
+import Tag from "../other/Tag"
 
 function Header() {
 	return (
-		<>
-      this is header component
-		</>
+		<header id="header-wrapper">
+			<div className="logo-wrapper">
+				<span>do</span>
+				<span className="accent-text">//</span>
+				<span>it</span>
+			</div>
+			<div className="tags-wrapper">
+				<Tag text={"pending"} />
+			</div>
+		</header>
 	);
 }
 

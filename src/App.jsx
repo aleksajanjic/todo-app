@@ -1,13 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
-// import { Header } from "../src/components/header/Header";
+import Header from "./components/header/Header";
+import { supabase } from "./lib/supabase";
+import Sidebar from "../src/components/other/Sidebar";
+import ListContent from "../src/components/list/ListContent";
+import Hamburger from "../src/components/other/Hamburger";
 
 function App() {
-	const [count, setCount] = useState(0);
+	const [lists, setLists] = useState([]);
+	const [open, setOpen] = useState(false);
 
-	console.log("this is a test");
+	useEffect(() => {
+		const fetchLists = async () => {
+			const { data, error } = await supabase.from("lists").select("*");
+			if (!error) {
+				setLists(data);
+			}
+		};
+		fetchLists();
+	}, []);
 
 	return (
 		<>
@@ -27,15 +40,16 @@ function App() {
 					/>
 					<img src={viteLogo} className="vite" alt="Vite logo" />
 				</div>
-				<button
-					type="button"
-					className="counter"
-					onClick={() => setCount((count) => count + 1)}
-				>
-					Count is {count}
-				</button>
 			</section>
 
+			<Header />
+
+			<div className={`menu-wrapper ${open ? "open" : ""}`}>
+				<Hamburger open={open} setOpen={setOpen} />
+				<Sidebar lists={lists} open={open} />
+			</div>
+
+			<ListContent />
 
 			<section id="spacer"></section>
 		</>
